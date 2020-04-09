@@ -32,20 +32,24 @@ Things you may want to cover:
 |name|string|null: false, unique: true|
 |e-mail|string|null: false, unique: true|
 |password|string|null: false|
+|password confirmation|string|null: false|
 
 ### Association
 - has_many :group_users
+- has_many :groups, through: :group_users
 - has_many :messages
-- has_many :images
 
-## usersテーブル
+
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
-|e-mail|string|null: false, unique: true|
-|password|string|null: false|
+|name|string|null: false|
+
 
 ### Association
 - has_many :group_users
+- has_many :users, through: :group_users
 - has_many :messages
+
+
