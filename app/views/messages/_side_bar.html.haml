@@ -1,1 +1,28 @@
-<サイドバー>
+.side-bar
+  .side-bar__user-name
+    .top-item
+      .top-item__name
+        %p name
+      .top-item__icon
+        = link_to "#", class: "icon__btn" do
+          = icon('far', 'far fa-edit', class: 'edit')
+          %span<>
+        = link_to "#", class: "icon__btn" do
+          = icon('fas', 'fas fa-cog', class: 'setting')
+          %span<>
+  .side-bar__group-list
+    .group
+      .group__name
+        %p techcamp
+      .group__message
+        %p まだメッセージはありません
+        .group
+      .group__name
+        %p techcamp
+      .group__message
+        %p まだメッセージはありません
+        .group
+      .group__name
+        %p techcamp
+      .group__message
+        %p まだメッセージはありません
