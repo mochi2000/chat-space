@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+}
+
+$black: #253141;
+$white: #ffffff;
+$blue: #38aef0;
+$dark: #333333;
+$grey: #999999;
+
+
+@mixin width-height-bgc($width: null, $height: null, $bgc: null) {
+  width: $width;
+  height: $height;
+  background-color: $bgc;
+}
+
+
+@mixin font($color: null, $fsize: null, $fweight: null) {
+  color: $color;
+  font-size: $fsize;
+  font-weight: $fweight;
+}
+
+@mixin flex-jus-aline($display, $jus: null, $aline: null) {
+  display: $display;
+  justify-content: $jus;
+  align-items: $aline;
+}
+
+.wrapper {
+  display: flex;
+  .side-bar {
+    @include width-height-bgc($width:300px, $height:100vh, $bgc:$black);
+    &__user-name {
+      @include width-height-bgc($height:100px, $bgc:$black);
+      @include flex-jus-aline(flex, center, center);
+      .top-item {
+        @include width-height-bgc($width:260px, $height:20px);
+        @include flex-jus-aline(flex, space-between);
+        &__name {
+          line-height: 20px;
+          @include font($white, 16px);
+        }
+        &__icon {
+          width: 60px;
+          line-height: 20px;
+          text-align: right;
+          .icon__btn {
+            text-decoration: none;
+            color: $white;
+            .edit {
+              padding-right: 5px;
+            }
+          }
+        }
+      }
+    }
+    &__group-list {
+      @include width-height-bgc($height:calc(100vh - 100px), $bgc:#2f3e51);
+      padding: 20px 20px 0 20px;
+      .group {
+        width: 260px;
+        @include font($white, $fweight:bold);
+        display: flex;
+        flex-wrap: wrap;
+        &__name {
+          @include width-height-bgc($width:100%, $height:20px);
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &__message {
+          width: 100%;
+          font-size: 11px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+
+  .main-chat {
+    @include width-height-bgc($width:calc(100vw - 300px), $height:100vh, $bgc:$white);
+    &__group-info {
+      @include width-height-bgc($height:100px, $bgc:$white);
+      border-bottom: 2px solid #eeeeee;
+      .top-main {
+        @include flex-jus-aline(flex, space-between);
+        height: calc(100% - 20px);
+        &__left {
+          @include font($dark, 20px);
+          padding: 35px 40px 15px 40px;
+        }
+        &__right {
+          @include font($blue, 16px);
+          @include width-height-bgc($width:72px, $height:40px);
+          margin: 28px 40px 28px 40px;
+          padding: 0 20px 0 20px;
+          @include flex-jus-aline(flex, $aline: center);
+          border: 1px solid $blue;
+        }
+      }
+      .top-member {
+        @include font($grey, 12px);
+        margin: 0 40px 0 40px;
+        height: 12px;
+      }
+    } 
+
+    &__message-list {
+      @include width-height-bgc($height:calc(100vh - 190px), $bgc:#fafafa);
+      .message-list {
+        height: 123px;
+        padding: 35px 0 46px 40px;
+        .user-date {
+          display: flex;
+          padding-bottom: 12px;
+          &__name {
+            @include font($dark, 16px);
+            padding-right: 10px;
+          }
+          &__timestamp {
+            @include font($grey, 12px);
+          }
+        }
+        &__message {
+          @include font(#434a54, 14px);
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+
+    &__message-form {
+      @include width-height-bgc($height:90px, $bgc:#d2d2d2);
+      padding: 20px 40px 20px 50px;
+        .message-form {
+          display: flex;
+          .input {
+            width: 100%;
+            position: relative;
+            &__message {
+              display: flex;
+              .message__text {
+                @include width-height-bgc($width:100%, $height:50px);
+                padding: 0 10px;
+              }
+            }
+            &__image {
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              cursor: pointer;
+              #message__image {
+                display: none;
+              }
+              .icon__image {
+                display: inline-block;
+                font-size: 1.3rem;
+                font-weight: solid;
+                line-height: 33px;
+              }
+          }
+        }
+        .message-form__btn {
+          @include width-height-bgc($width:100px, $height:50px, $bgc:$blue);
+          margin-left: 15px;
+          padding: 0 30px;
+          color: $white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
