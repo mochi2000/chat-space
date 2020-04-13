@@ -1,27 +1,39 @@
 * {
   box-sizing: border-box;
 }
+
+@mixin width-height-bgc($width: null, $height: null, $bgc: null) {
+  width: $width;
+  height: $height;
+  background-color: $bgc;
+}
+
+
+@mixin font($color: null, $fsize: null, $fweight: null) {
+  color: $color;
+  font-size: $fsize;
+  font-weight: $fweight;
+}
+
+@mixin flex-jus-aline($display, $jus: null, $aline: null) {
+  display: $display;
+  justify-content: $jus;
+  align-items: $aline;
+}
+
 .wrapper {
   display: flex;
   .side-bar {
-    background-color: #253141;
-    width: 300px;
-    height: 100vh;
+    @include width-height-bgc($width:300px, $height:100vh, $bgc:#253141);
     &__user-name {
-      background-color: #253141;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include width-height-bgc($height:100px, $bgc:#253141);
+      @include flex-jus-aline(flex, center, center);
       .top-item {
-        width: 260px;
-        height: 20px;
-        display: flex;
-        justify-content: space-between;
+        @include width-height-bgc($width:260px, $height:20px);
+        @include flex-jus-aline(flex, space-between);
         &__name {
           line-height: 20px;
-          color: #ffffff;
-          font-size: 16px;
+          @include font(#ffffff, 16px);
         }
         &__icon {
           width: 60px;
@@ -38,18 +50,15 @@
       }
     }
     &__group-list {
-      background-color: #2f3e51;
-      height: calc(100vh - 100px);
+      @include width-height-bgc($height:calc(100vh - 100px), $bgc:#2f3e51);
       padding: 20px 20px 0 20px;
       .group {
         width: 260px;
-        color: #ffffff;
-        font-weight: bold;
+        @include font(#ffffff, $fweight:bold);
         display: flex;
         flex-wrap: wrap;
         &__name {
-          height: 20px;
-          width: 100%;
+          @include width-height-bgc($width:100%, $height:20px);
           font-size: 15px;
           margin-bottom: 5px;
         }
@@ -64,45 +73,35 @@
 
 
   .main-chat {
-    background-color: #ffffff;
-    width: calc(100vw - 300px);
-    height: 100vh;
+    @include width-height-bgc($width:calc(100vw - 300px), $height:100vh, $bgc:#ffffff);
     &__group-info {
-      background-color: #ffffff;
-      height: 100px;
+      @include width-height-bgc($height:100px, $bgc:#ffffff);
       border-bottom: 2px solid #eeeeee;
       .top-main {
-        display: flex;
-        justify-content: space-between;
+        @include flex-jus-aline(flex, space-between);
         height: calc(100% - 20px);
         &__left {
-          color: #333333;
-          font-size: 20px;
+          @include font(#333333, 20px);
           padding: 35px 40px 15px 40px;
         }
         &__right {
-          color: #38aef0;
-          font-size: 16px;
-          height: 40px;
-          width: 72px;
+          @include font(#38aef0, 16px);
+          @include width-height-bgc($width:72px, $height:40px);
           margin: 28px 40px 28px 40px;
           padding: 0 20px 0 20px;
-          display: flex;
-          align-items: center;
+          @include flex-jus-aline(flex, $aline: center);
           border: 1px solid #38aef0;
         }
       }
       .top-member {
-        color: #999999;
-        font-size: 12px;
+        @include font(#999999, 12px);
         margin: 0 40px 0 40px;
         height: 12px;
       }
     } 
 
     &__message-list {
-      background-color: #fafafa;
-      height: calc(100vh - 190px);
+      @include width-height-bgc($height:calc(100vh - 190px), $bgc:#fafafa);
       .message-list {
         height: 123px;
         padding: 35px 0 46px 40px;
@@ -110,18 +109,15 @@
           display: flex;
           padding-bottom: 12px;
           &__name {
-            color: #333333;
-            font-size: 16px;
+            @include font(#333333, 16px);
             padding-right: 10px;
           }
           &__timestamp {
-            color: #999999;
-            font-size: 12px;
+            @include font(#999999, 12px);
           }
         }
         &__message {
-          color: #434a54;
-          font-size: 14px;
+          @include font(#434a54, 14px);
           margin-bottom: 10px;
         }
       }
@@ -129,8 +125,7 @@
 
 
     &__message-form {
-      background-color: #d2d2d2;
-      height: 90px;
+      @include width-height-bgc($height:90px, $bgc:#d2d2d2);
       padding: 20px 40px 20px 50px;
         .message-form {
           display: flex;
@@ -140,8 +135,7 @@
             &__message {
               display: flex;
               .message__text {
-                width: 100%;
-                height: 50px;
+                @include width-height-bgc($width:100%, $height:50px);
                 padding: 0 10px;
               }
             }
@@ -162,11 +156,9 @@
           }
         }
         .message-form__btn {
-          height: 50px;
-          width: 100px;
+          @include width-height-bgc($width:100px, $height:50px, $bgc:#38aef0);
           margin-left: 15px;
           padding: 0 30px;
-          background-color: #38aef0;
           color: #ffffff;
           cursor: pointer;
         }
