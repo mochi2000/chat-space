@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+$black: #253141;
+$white: #ffffff;
+$blue: #38aef0;
+$dark: #333333;
+$grey: #999999;
+
+
 @mixin width-height-bgc($width: null, $height: null, $bgc: null) {
   width: $width;
   height: $height;
@@ -24,16 +31,16 @@
 .wrapper {
   display: flex;
   .side-bar {
-    @include width-height-bgc($width:300px, $height:100vh, $bgc:#253141);
+    @include width-height-bgc($width:300px, $height:100vh, $bgc:$black);
     &__user-name {
-      @include width-height-bgc($height:100px, $bgc:#253141);
+      @include width-height-bgc($height:100px, $bgc:$black);
       @include flex-jus-aline(flex, center, center);
       .top-item {
         @include width-height-bgc($width:260px, $height:20px);
         @include flex-jus-aline(flex, space-between);
         &__name {
           line-height: 20px;
-          @include font(#ffffff, 16px);
+          @include font($white, 16px);
         }
         &__icon {
           width: 60px;
@@ -41,7 +48,7 @@
           text-align: right;
           .icon__btn {
             text-decoration: none;
-            color: #ffffff;
+            color: $white;
             .edit {
               padding-right: 5px;
             }
@@ -54,7 +61,7 @@
       padding: 20px 20px 0 20px;
       .group {
         width: 260px;
-        @include font(#ffffff, $fweight:bold);
+        @include font($white, $fweight:bold);
         display: flex;
         flex-wrap: wrap;
         &__name {
@@ -73,28 +80,28 @@
 
 
   .main-chat {
-    @include width-height-bgc($width:calc(100vw - 300px), $height:100vh, $bgc:#ffffff);
+    @include width-height-bgc($width:calc(100vw - 300px), $height:100vh, $bgc:$white);
     &__group-info {
-      @include width-height-bgc($height:100px, $bgc:#ffffff);
+      @include width-height-bgc($height:100px, $bgc:$white);
       border-bottom: 2px solid #eeeeee;
       .top-main {
         @include flex-jus-aline(flex, space-between);
         height: calc(100% - 20px);
         &__left {
-          @include font(#333333, 20px);
+          @include font($dark, 20px);
           padding: 35px 40px 15px 40px;
         }
         &__right {
-          @include font(#38aef0, 16px);
+          @include font($blue, 16px);
           @include width-height-bgc($width:72px, $height:40px);
           margin: 28px 40px 28px 40px;
           padding: 0 20px 0 20px;
           @include flex-jus-aline(flex, $aline: center);
-          border: 1px solid #38aef0;
+          border: 1px solid $blue;
         }
       }
       .top-member {
-        @include font(#999999, 12px);
+        @include font($grey, 12px);
         margin: 0 40px 0 40px;
         height: 12px;
       }
@@ -109,11 +116,11 @@
           display: flex;
           padding-bottom: 12px;
           &__name {
-            @include font(#333333, 16px);
+            @include font($dark, 16px);
             padding-right: 10px;
           }
           &__timestamp {
-            @include font(#999999, 12px);
+            @include font($grey, 12px);
           }
         }
         &__message {
@@ -156,10 +163,10 @@
           }
         }
         .message-form__btn {
-          @include width-height-bgc($width:100px, $height:50px, $bgc:#38aef0);
+          @include width-height-bgc($width:100px, $height:50px, $bgc:$blue);
           margin-left: 15px;
           padding: 0 30px;
-          color: #ffffff;
+          color: $white;
           cursor: pointer;
         }
       }
