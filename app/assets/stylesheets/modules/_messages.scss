@@ -99,6 +99,7 @@ $grey: #999999;
           padding: 0 20px 0 20px;
           @include flex-jus-aline(flex, $aline: center);
           border: 1px solid $blue;
+          text-decoration: none;
         }
       }
       .top-member {
@@ -110,9 +111,10 @@ $grey: #999999;
 
     &__message-list {
       @include width-height-bgc($height:calc(100vh - 190px), $bgc:#fafafa);
+      padding: 35px 40px 46px 40px;
       .message-list {
         height: 123px;
-        padding: 35px 0 46px 40px;
+        padding-bottom: 40px;
         .user-date {
           display: flex;
           padding-bottom: 12px;
@@ -127,6 +129,9 @@ $grey: #999999;
         &__message {
           @include font(#434a54, 14px);
           margin-bottom: 10px;
+          .lower-message__image{
+            @include width-height-bgc($width:10%, $height:10%);
+          }
         }
       }
     }
@@ -145,6 +150,7 @@ $grey: #999999;
               .message__text {
                 @include width-height-bgc($width:100%, $height:50px);
                 padding: 0 10px;
+                border-style: none;
               }
             }
             &__image {
@@ -152,7 +158,7 @@ $grey: #999999;
               top: 10px;
               right: 10px;
               cursor: pointer;
-              #message__image {
+              .message__image {
                 display: none;
               }
               .icon__image {
@@ -160,15 +166,16 @@ $grey: #999999;
                 font-size: 1.3rem;
                 font-weight: solid;
                 line-height: 33px;
-              }
+            }
           }
+          
         }
-        .message-form__btn {
-          @include width-height-bgc($width:100px, $height:50px, $bgc:$blue);
-          margin-left: 15px;
-          padding: 0 30px;
-          color: $white;
-          cursor: pointer;
+          .message-form__btn {
+            @include width-height-bgc($width:100px, $height:50px, $bgc:$blue);
+            margin-left: 15px;
+            padding: 0 30px;
+            color: $white;
+            cursor: pointer;
         }
       }
     }
