@@ -4,7 +4,7 @@
       .top-main__left
         %p 
           = @group[:name]
-      = link_to 'Edit', edit_group_path(@group.id), class: "top-main__right" 
+      = link_to 'Edit', edit_group_path(@group), class: "top-main__right" 
     .top-member
       Member:
       - @group.users.each do |user|
