@@ -45,13 +45,14 @@ $(function(){
     var url = $(this).attr('action')
     $.ajax({
       url:  url,
-      type: 'POST',
+      type: "POST",
       data: formData,
-      datatype: 'json',
+      dataType: "json",
       processData: false,
       contentType: false
     })
     .done(function(data){
+      console.log(data)
       var html =buildHTML(data);
       $('.main-chat__message-list').append(html);
       $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
@@ -86,6 +87,6 @@ $(function(){
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 7000);
+    setInterval(reloadMessages, 20000);
   }
 });
