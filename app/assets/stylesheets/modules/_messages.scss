@@ -28,6 +28,11 @@ $grey: #999999;
   align-items: $aline;
 }
 
+a {
+  color: $white;
+  text-decoration: none;
+}
+
 .wrapper {
   display: flex;
   .side-bar {
@@ -59,7 +64,7 @@ $grey: #999999;
     
     &__group-list {
       @include width-height-bgc($height:calc(100vh - 100px), $bgc:#2f3e51);
-      padding: 20px 20px 0 20px;
+      padding: 20px 0 0 20px;
       .group {
         width: 260px;
         @include font($white, $fweight:bold);
