@@ -4,11 +4,16 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
-h2 {
-  margin-bottom: 10px;
-  color: #000;
-  font-size: 14px;
+
+.chat-group-form__errors{
+  h2 {
+    margin-bottom: 10px;
+    color: #f05050;
+    font-size: 14px;
+  }
 }
+
+
 
 ul {
   margin: 0;
